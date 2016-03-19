@@ -25,6 +25,10 @@ var PARKSREC = (function( $, H ) {
 			return datetime.match(/([0-9\-]+)/)[0];
 		});
 
+		H.registerHelper('parse_fee', function(fee) {
+			return fee.match(/([0-9\.\$]+)/)[0];
+		});
+
 		// set up listeners
 		$("form").on("submit", function(evt) {
 			evt.preventDefault();
@@ -57,6 +61,7 @@ var PARKSREC = (function( $, H ) {
 
 	function search(query) {
 		$("#loading-icon").css("display", "block");
+		$(".template").css("opacity", "0.5");
 		// query the api
 		$.ajax({
 			method: "GET",
@@ -66,6 +71,7 @@ var PARKSREC = (function( $, H ) {
 			console.log(data);
 			render(searchResultsTemplate);
 			$("#loading-icon").css("display", "none");
+			$(".template").css("opacity", "1.0");
 		});
 	};
 

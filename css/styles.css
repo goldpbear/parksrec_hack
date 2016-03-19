@@ -91,7 +91,11 @@ form {
 	cursor: pointer;
 }
 
-#back_button {
+#buttons {
 	position: absolute;
-	bottom: 5%;
+	width: 100%;
+}
+
+#buttons button {
+	margin-bottom: 10px;
 }

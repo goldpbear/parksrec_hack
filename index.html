@@ -12,6 +12,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <script type="text/javascript" src="js/controller.js"></script>
   <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/jquery.datetimepicker.full.min.js"></script>
 
   <!-- stylesheets -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -33,7 +34,7 @@
 
   <!-- templates -->
   <script id="search-results-template" type="text/x-handlebars-template">
-    <ul class="table-view">
+    <ul class="table-view template">
       {{#each data}}
         <li class="table-view-cell media search-result" id={{@index}}>
           <a class="navigate-right">
@@ -50,7 +51,7 @@
   </script>
 
   <script id="suggested-events-template" type="text/x-handlebars-template">
-    <ul class="table-view">
+    <ul class="table-view template">
       {{#each data}}
         <li class="table-view-cell media">
           <a class="navigate-right">
@@ -65,18 +66,25 @@
   </script>
 
   <script id="event-detail-template" type="text/x-handlebars-template">
-    <ul class="table-view">
-      <li class="table-view-cell media search-result" id={{@index}}>
-        <a class="navigate-right">
-          <div>
-            {{data.coursetitle}}
-            <p class="activity-description-full">{{data.coursedescription}}</p>
-            <span class="circle">{{data.num_registered}}</span><span class="num-participants">registered participants</span>
-          </div>
-        </a>
+    <ul class="table-view template">
+      <li class="table-view-cell search-result" id={{@index}}>
+        <div>
+          {{data.coursetitle}}
+          <p class="activity-description-full"><span class="bolded">Description: </span>{{data.coursedescription}}</p>
+          <p><span class="bolded">Begins: </span>{{#parse_datetime data.first_start_datetime}}{{/parse_datetime}}</p>
+          <p><span class="bolded">Ends: </span>{{#parse_datetime data.last_start_datetime}}{{/parse_datetime}}</p>
+          <p><span class="bolded">Fee: </span>{{#parse_fee data.fee}}{{/parse_fee}}</p>
+          <p><span class="bolded">Address: </span>{{data.location_1_address}}</p>
+          <p><span class="bolded">Time: </span>{{data.coursedays}}</p>
+          <br />
+          <span class="circle">{{data.num_registered}}</span><span class="num-participants">registered participants</span>
+        </div>
       </li>
     </ul>
-    <button id="back_button" class="btn btn-primary btn-block">Back</button>
+    <div id="buttons">
+      <button id="register_button" class="btn btn-positive btn-block">Register</button>
+      <button id="back_button" class="btn btn-primary btn-block">Back</button>
+    </div>
   </script>
   
 
