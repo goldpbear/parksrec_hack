@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ParksRecHack</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE7">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+  <!-- scripts -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/ratchet.css">
+  <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>
+  <form>
+    <input id="search-box" type="text" placeholder="search...">
+  </form>
+
+  <div id="main"></div>
+
+  <!-- templates -->
+  <script id="search-results-template" type="text/x-handlebars-template">
+    <div class="container">
+      {{#each data}}
+        <ul class="table-view">
+          {{#each data}}
+            <li class="table-view-cell media">
+              <a class="navigate-right">
+                <div class="media-body">
+                  {{title}}
+                  <p>{{description}}</p>
+                </div>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      {{/each}}
+    </div>
+  </script>
+
+  <script id="suggested-events-template" type="text/x-handlebars-template">
+    <ul class="table-view">
+      {{#each data}}
+        <li class="table-view-cell media">
+          <a class="navigate-right">
+            <div class="media-body">
+              {{title}}
+              <p>{{description}}</p>
+            </div>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </script>
+  
+
+
+ 
+
+</body>
+</html>

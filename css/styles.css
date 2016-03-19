@@ -1,0 +1,66 @@
+body, html {
+	height: 100%;
+}
+
+body {
+	background-image: url("../img/park_background.jpg"); 
+	background-size: auto 100%;
+}
+
+/*
+#search-box input {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border: 3px solid lightgreen;
+	border-radius: 5px;
+}
+*/
+
+.event-item {
+	border: 3px solid gray;
+	border-radius: 3px;
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: #00A387;
+}
+
+.container {
+	padding: 0;
+}
+
+.circle {
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	font-size:50px;
+	color:#fff;
+	line-height:10px;
+	text-align:center;
+	background:#000;
+	font-size: 1.3em;
+	padding-top: 10px;
+}
+
+.event-item p {
+	margin-bottom: 3px;
+}
+
+.space-vertically {
+	margin-top: 15%;
+}
+
+.bolded {
+	font-weight: bold;
+}
+
+#search-submit {
+	display: none;
+}
+
+#search-box-input {
+	border: 5px solid red;
+}
+
+.bar {
+	display: block;
+}
