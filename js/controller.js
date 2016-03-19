@@ -20,11 +20,10 @@ var PARKSREC = (function( $, H ) {
 		suggestedEventsTemplate = H.compile($("#suggested-events-template").html());
 
 		// set up listeners
-		$("#search-box").on("submit", function(evt) {
-			console.log("!!!!!");
+		$("form").on("submit", function(evt) {
 			evt.preventDefault();
-			//var searchQurey = $("#search-box-input").val();
-			//search(searchQurey);
+			var searchQurey = $("#search-box").val();
+			search(searchQurey);
 			//render(searchResultsTemplate, dummySearchData);
 		});
 
@@ -32,7 +31,9 @@ var PARKSREC = (function( $, H ) {
 	};
 
 	function render(template, context) {
+		console.log("render");
 		var content = template({ data: context });
+		// console.log("content", content);
 		$("#main").html(content);
 
 	};
@@ -42,11 +43,10 @@ var PARKSREC = (function( $, H ) {
 		// query the api
 		$.ajax({
 			method: "GET",
-			url: "https://e9f450a8.ngrok.io/?query=" + query + "&limit=5"
+			url: "https://e9f450a8.ngrok.io/?q=" + query
 		}).done(function(data, err) {
 			console.log(data);
-			// render
-
+			render(searchResultsTemplate, data);
 		});
 	};
 

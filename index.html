@@ -22,28 +22,25 @@
 <body>
   <form>
     <input id="search-box" type="text" placeholder="search...">
+    <input id="search-submit" type="submit">
   </form>
 
   <div id="main"></div>
 
   <!-- templates -->
   <script id="search-results-template" type="text/x-handlebars-template">
-    <div class="container">
-      {{#each data}}
-        <ul class="table-view">
-          {{#each data}}
-            <li class="table-view-cell media">
-              <a class="navigate-right">
-                <div class="media-body">
-                  {{title}}
-                  <p>{{description}}</p>
-                </div>
-              </a>
-            </li>
-          {{/each}}
-        </ul>
-      {{/each}}
-    </div>
+      <ul class="table-view">
+        {{#each data}}
+          <li class="table-view-cell media">
+            <a class="navigate-right">
+              <div>
+                {{coursetitle}}
+                <p class="activity-description">{{coursedescription}}</p>
+              </div>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
   </script>
 
   <script id="suggested-events-template" type="text/x-handlebars-template">
