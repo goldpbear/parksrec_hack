@@ -19,31 +19,31 @@ var PARKSREC = (function( $, H ) {
 		searchResultsTemplate = H.compile($("#search-results-template").html());
 		suggestedEventsTemplate = H.compile($("#suggested-events-template").html());
 
+		H.registerHelper('parse_datetime', function(datetime) {
+			return datetime.match(/([0-9\-]+)/)[0];
+		});
+
 		// set up listeners
 		$("form").on("submit", function(evt) {
 			evt.preventDefault();
 			var searchQurey = $("#search-box").val();
 			search(searchQurey);
-			//render(searchResultsTemplate, dummySearchData);
 		});
 
 		render(suggestedEventsTemplate, dummyEventsData);
 	};
 
 	function render(template, context) {
-		console.log("render");
 		var content = template({ data: context });
-		// console.log("content", content);
 		$("#main").html(content);
 
 	};
 
 	function search(query) {
-		console.log("search");
 		// query the api
 		$.ajax({
 			method: "GET",
-			url: "https://e9f450a8.ngrok.io/?q=" + query
+			url: "https://parksrec.herokuapp.com/?q=" + query
 		}).done(function(data, err) {
 			console.log(data);
 			render(searchResultsTemplate, data);

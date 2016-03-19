@@ -36,6 +36,8 @@
               <div>
                 {{coursetitle}}
                 <p class="activity-description">{{coursedescription}}</p>
+                <p><span class="bolded">Begins: </span>{{#parse_datetime reg_start_date}}{{/parse_datetime}}</p>
+                <span class="circle">{{num_registered}}</span><span class="num-participants">registered participants</span>
               </div>
             </a>
           </li>

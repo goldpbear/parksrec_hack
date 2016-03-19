@@ -30,16 +30,17 @@ body {
 }
 
 .circle {
-	width:30px;
-	height:30px;
+	width:20px;
+	height:20px;
 	border-radius:50%;
-	font-size:50px;
 	color:#fff;
-	line-height:10px;
 	text-align:center;
 	background:#000;
-	font-size: 1.3em;
-	padding-top: 10px;
+	font-size: 0.8em;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .event-item p {
@@ -67,8 +68,14 @@ body {
 }
 
 .activity-description {
-	height: 40px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.num-participants {
+	font-style: italic;
+	color: #BBBBBB;
+	font-size: 0.8em;
+	padding-left: 7px;
 }
