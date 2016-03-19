@@ -60,7 +60,7 @@ body {
 }
 
 form {
-	margin-top: 10px;
+	margin-top: 25px;
 }
 
 .bar {
@@ -85,5 +85,13 @@ form {
 	position: absolute;
 	top: 50%;
 	left: 40%;
+}
 
+.search-result {
+	cursor: pointer;
+}
+
+#back_button {
+	position: absolute;
+	bottom: 5%;
 }
