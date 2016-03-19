@@ -59,8 +59,8 @@ body {
 	display: none;
 }
 
-#search-box-input {
-	border: 5px solid red;
+form {
+	margin-top: 10px;
 }
 
 .bar {
@@ -78,4 +78,12 @@ body {
 	color: #BBBBBB;
 	font-size: 0.8em;
 	padding-left: 7px;
+}
+
+#loading-icon {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 40%;
+
 }

@@ -30,7 +30,7 @@ var PARKSREC = (function( $, H ) {
 			search(searchQurey);
 		});
 
-		render(suggestedEventsTemplate, dummyEventsData);
+		render(suggestedEventsTemplate, []);
 	};
 
 	function render(template, context) {
@@ -40,6 +40,7 @@ var PARKSREC = (function( $, H ) {
 	};
 
 	function search(query) {
+		$("#loading-icon").css("display", "block");
 		// query the api
 		$.ajax({
 			method: "GET",
@@ -47,6 +48,7 @@ var PARKSREC = (function( $, H ) {
 		}).done(function(data, err) {
 			console.log(data);
 			render(searchResultsTemplate, data);
+			$("#loading-icon").css("display", "none");
 		});
 	};
 
