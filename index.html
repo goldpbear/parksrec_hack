@@ -23,8 +23,15 @@
 </head>
 <body>
   <form>
-    <input id="search-box" type="text" placeholder="search...">
+    <input id="search-box" type="text" placeholder="search..."><i class="advanced-disclosure glyphicon glyphicon-option-horizontal"></i>
     <input id="search-submit" type="submit">
+    <div id="search-advanced">
+      <input id="search-barcode" type="text" placeholder="barcode...">
+      <div id="advanced-checkboxes">
+        <label><input id="search-not-started" type="checkbox">Not started</label>
+        <label><input id="search-starting-soon" type="checkbox">Starting soon</label>
+      </div>
+    </div>
   </form>
 
   <img id="loading-icon" src="img/loading.svg" />
@@ -41,7 +48,7 @@
             <div>
               {{coursetitle}}
               <p class="activity-description">{{coursedescription}}</p>
-              <p><span class="bolded">Begins: </span>{{#parse_datetime reg_start_date}}{{/parse_datetime}}</p>
+              <p><span class="bolded">Begins: </span>{{#parse_datetime first_start_datetime}}{{/parse_datetime}}</p>
               <span class="circle">{{num_registered}}</span><span class="num-participants">registered participants</span>
             </div>
           </a>
@@ -51,18 +58,16 @@
   </script>
 
   <script id="suggested-events-template" type="text/x-handlebars-template">
-    <ul class="table-view template">
-      {{#each data}}
-        <li class="table-view-cell media">
-          <a class="navigate-right">
-            <div class="media-body">
-              {{title}}
-              <p>{{description}}</p>
-            </div>
-          </a>
-        </li>
-      {{/each}}
-    </ul>
+    <div id="suggested-searches">
+      <p class="bolded">Need some ideas?</p>
+      <p>Try searching for:<p/>
+      <ul>
+        <li>Martial arts</li>
+        <li>Knitting</li>
+        <li>Kids swimming</li>
+        <li>Culinary classes</li>
+      </ul>
+    </div>
   </script>
 
   <script id="event-detail-template" type="text/x-handlebars-template">

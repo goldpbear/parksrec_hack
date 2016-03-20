@@ -99,3 +99,45 @@ form {
 #buttons button {
 	margin-bottom: 10px;
 }
+
+.advanced-disclosure {
+	position: absolute;
+	top: 37px;
+	right: 10px;
+	cursor: pointer;
+}
+
+#search-advanced {
+	margin-bottom: 15px;
+	color: #FFF;
+}
+
+#search-advanced input {
+	margin-right: 5px;
+	color: #000;
+}
+
+#advanced-checkboxes label {
+	margin-left: 45px;
+	padding-left: 10px;
+	font-weight: normal;
+	font-size: 1em;
+	color: #FFF;
+}
+
+#suggested-searches {
+	margin-top: 200px;
+	margin-left: 50px;
+}
+
+#suggested-searches p {
+	font-size: 30px;
+	color: #99ccff;
+}
+
+#suggested-searches li {
+	font-size: 25px;
+	color: #FFF;
+	line-height: 30px;
+	list-style-type: none;
+}

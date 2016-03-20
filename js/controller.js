@@ -29,11 +29,22 @@ var PARKSREC = (function( $, H ) {
 			return fee.match(/([0-9\.\$]+)/)[0];
 		});
 
+		$("#search-advanced").hide();
+
 		// set up listeners
 		$("form").on("submit", function(evt) {
 			evt.preventDefault();
-			var searchQurey = $("#search-box").val();
-			search(searchQurey);
+			var query = {
+		        q:            $("#search-box").val(),
+		        barcode:      $('#search-barcode').val(),
+		        notStarted:   $('#search-not-started').prop('checked'),
+		        startingSoon: $('#search-starting-soon').prop('checked')
+		    };
+		    search(query);
+		});
+		$(".advanced-disclosure").on("click", function() {
+			$("#search-advanced").toggle("slow");
+
 		});
 
 		render(suggestedEventsTemplate, []);
@@ -60,12 +71,14 @@ var PARKSREC = (function( $, H ) {
 	};
 
 	function search(query) {
+		console.log("query", query);
 		$("#loading-icon").css("display", "block");
 		$(".template").css("opacity", "0.5");
 		// query the api
 		$.ajax({
 			method: "GET",
-			url: "https://parksrec.herokuapp.com/?q=" + query
+			url: "https://parksrec.herokuapp.com/",
+			data: query
 		}).done(function(data, err) {
 			retrievedData = data;
 			console.log(data);
